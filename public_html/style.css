@@ -1,0 +1,43 @@
+/* 
+    Created on : Aug 14, 2023, 11:47:04 AM
+    Author     : Noah Hanshaw
+*/
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+}
+
+form.entry {
+    text-align: center;
+    padding: 2px;
+}
+
+p.version {
+    text-align: center;
+}
+
+.dataFrame {
+    padding: 20px;
+}
+
+.column {
+    float:left;
+    width: 30%;
+}
+
+#map {
+    float:left;
+}
+
+#data{
+    float: left;
+    padding-left: 0%;
+}
+#graph{
+    float:left;
+}
+
+#values{
+    text-align: left;
+}

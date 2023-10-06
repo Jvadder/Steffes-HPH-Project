@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+OTS Heat Pump HouseTool
+Created 8/14/2023 by Noah Hanshaw
+-->
+
+<html>
+    <head>
+        <title>OTS Heat Pump House Tool</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="functions.js"></script>
+    </head>
+    <body>
+        <h1>OTS Heat Pump House Tool</h1>
+        <p class = "version">Version 0.0.0</p>
+        <form class="entry">
+            <label>Test Data Input</label>
+            <input type="file" id="input1">
+            <label>Weather Data Input</label>
+            <input type="file" id="input2">
+        </form>
+        <form class = "entry" id="form">
+            <input id="user-input-1" placeholder="Street address">
+            <input id="user-input-2" placeholder="City">
+            <input id="user-input-3" placeholder="State Abbreviation">
+            <input id="user-input-4" placeholder="ZIP Code">
+            <button id="button" type="button" onclick="getHouseData();getWeatherData()">Enter</button>
+        </form>
+        <div class = 'dataFrame'>
+            <div class='column' id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.1080440519186!2d-76.9285961244892!3d39.64707310212421!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c846a9a7b9e573%3A0xf65ce9d2d06b71c8!2s1954%20Hillary%20Dr%2C%20Westminster%2C%20MD%2021157!5e1!3m2!1sen!2sus!4v1692204177050!5m2!1sen!2sus"
+                    width="400" height="300" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="column" id="data">
+                <h3 style="text-align: center;">House Data</h3>
+                <div style="float: left;">
+                    <p>Square Footage: </p>
+                    <p>Number of Floors: </p>
+                    <p>Max Outdoor Temp: </p>
+                    <p>Min Outdoor Temp: </p>
+                    <p>Max Indoor Temp: </p>
+                    <p>Min Indoor Temp: </p>
+                </div>
+                <div style="float: left; padding-left: 10px;">
+                    <p id = 'squareFeet'></p>
+                    <p id = 'numFloors'></p>
+                    <p id = 'outdoorMax'></p>
+                    <p id = 'outdoorMin'></p>
+                    <p id = 'indoorMax'></p>
+                    <p id = 'indoorMin'></p>
+                </div>
+            </div>
+            <div class='column' id="graph">
+                <canvas id="graphData" style="width:100%;"></canvas>
+            </div>
+        </div>
+    </body>
+</html>
